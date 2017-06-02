@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="msapplication-tap-highlight" content="no" />
+    <!--<meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width" />-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, target-densitydpi=medium-dpi, user-scalable=0" />
+    <!-- This is a wide open CSP declaration. To lock this down for production, see below. -->
+    <meta http-equiv="Content-Security-Policy" content="default-src * gap://ready 'unsafe-inline';
+                      style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://use.fontawesome.com http://weloveiconfonts.com;
+                      media-src *;
+                      font-src 'self' https://use.fontawesome.com http://weloveiconfonts.com https://fonts.gstatic.com data:" />
+
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+
+    <link rel="stylesheet" type="text/css" href="css/jquery.mobile.css" />
+    <link rel="stylesheet" type="text/css" href="css/jquery.mobile.theme.css" />
+    <link rel="stylesheet" type="text/css" href="css/theme-classic.css" />
+    <!--<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Love+Ya+Like+A+Sister">-->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Tangerine|Architects+Daughter">
+    <link rel="stylesheet" type="text/css" href="css/index.css" />
+    <title>IA Marathi Mandal</title>
+</head>
+
+<body>
+    <!-- start of app -->
+    <div class="app">
+        <!-- start of login page -->
+        <div data-role="page" id="loginPage" data-title="Login" data-theme="b">
+            <!--<header data-role="header" data-position="fixed"><h1>Welcome to</h1></header>-->
+            <div data-role="content">
+                <h3 class="welcome">Welcome to Iowa Marathi Mandal</h3>
+                <div id="loginForm" class="loginForm">
+                    <h2><span class="entypo-users"></span>Sign In</h2>
+                    <fieldset>
+                        <label for="loginEmail">Email</label>
+                        <input type="email" id="loginEmail" value="">
+                        <label for="loginPass">Password</label>
+                        <input type="password" name="password-2" id="loginPass" value="" autocomplete="off">
+                        <div id="loginBtnDiv">
+                            <!--<button id="login" data-inline="true">Login</button>-->
+                            <!--<button id="clear" data-inline="true">Reset</button>-->
+                            <!--<button id="#signUp" data-inline="true">Sign Up</button>-->
+                            <input type="button" id="login" data-inline="true" data-mini="true" value="Login"/>
+                            <!--<a href="#" data-role="button" data-inline="true" data-mini="true">Reset</a>-->
+                            <input type="button" id="signUp" data-inline="true" data-mini="true" value="Sign Up"/>
+                            <input type="button" id="signInGuest" data-inline="true" data-mini="true" value="Guest"/>
+                        </div>
+                    </fieldset>
+                    <div id="loginNote"><span id="loginEmlNote" class="entypo-megaphone"></span>Email given above will also be used for password reset purpose.</div>
+                </div>
+            </div>
+            <!--<footer data-role="footer" data-position="fixed"><h3>Copyright @copy; 2015 IAMM</h3></footer>-->
+        </div>
+        <!-- end of login page -->
+
+        <!-- start of forgot password page -->
+        <div data-role="page" id="fgPasswordPage" data-title="Login" data-theme="b">
+            <!--<header data-role="header" data-position="fixed"><h1>Welcome to</h1></header>-->
+            <div data-role="content">
+                <h3 class="welcome">Welcome to Iowa Marathi Mandal</h3>
+                <div id="fgPassForm" class="loginForm">
+                    <h3><span class="entypo-tools"></span>Recover your password</h3>
+                    <fieldset>
+                        <label for="fgPassEmail">Registered Email</label>
+                        <input type="email" id="fgPassEmail" value="">
+                        <div id="fgPassBtnDiv">
+                          <input type="button" id="recoverPass" data-inline="true" data-mini="true" value="Submit"/>
+                          <input type="button" id="goToLogin" data-inline="true" data-mini="true" value="Go to Login"/>
+                        </div>
+                    </fieldset>
+                    <div id="fgPassNote"><span id="fgPassResetNote" class="entypo-megaphone"></span>
+                        An email will be sent to above email address to reset your password.
+                    </div>
+                </div>
+            </div>
+            <!--<footer data-role="footer" data-position="fixed"><h3>Copyright @copy; 2015 IAMM</h3></footer>-->
+        </div>
+        <!-- end of forgot password page -->
+
+        <!-- start of logout dialog -->
+        <div data-role="dialog" id="confirmLogout" data-theme="b">
+            <div data-role="header"></div>
+            <div data-role="content">
+                <h3>Are you sure to logout from the app?</h3>
+                <a href="#" id="logoutConYes" data-role="button" data-inline="true" data-mini="true">Yes</a>
+                <a href="#home" id="logoutConNo" data-role="button" data-inline="true" data-mini="true">No</a>
+            </div>
+        </div>
+        <!-- end of logout dialog -->
+
+        <!-- start of home page -->
+        <div data-role="page" id="home" data-title="Home" data-theme="b">
+            <!--<header data-role="header" data-position="fixed" data-id="st_header" data-theme="a"><h1>Home</h1></header>-->
+            <div data-role="content">
+                <img id="homeLogo" src="img/ia_mobile_logo.png" alt="Iowa Marathi Mandal"/>
+                <h3 id="homeWelcome" class="welcome">Welcome to Iowa Marathi Mandal</h3>
+                <div data-role="controlgroup" id="homeMenu">
+                    <a href="#about" data-role="button" data-transition="slide"><span class="fontawesome-group"></span> About</a>
+                    <a href="#events" id="eventMenuBtn" data-role="button" data-transition="slide"><span class="fontawesome-calendar"></span>Events</a>
+                    <a href="#gallery" id="galleryMenuBtn" data-role="button" data-transition="slide"><span class="fontawesome-camera-retro"></span>Gallery</a>
+                    <a href="#bmm2017" id="bmmMenuBtn" data-role="button" data-transition="slide"><span class="entypo-note-beamed"></span>BMM 2017</a>
+                    <a href="#contact" data-role="button" data-transition="slide"><span class="entypo-address"></span>Contact Us</a>
+                    <a href="#logout" id="logoutMenuBtn" data-role="button" data-transition="slide"><span class="fontawesome-off"></span>Logout</a>
+                    <a href="#loginPage" id="goToSignUp" data-role="button" data-transition="slide"><span class="entypo-user-add"></span>Go to Sign Up</a>
+                </div>
+            </div>
+            <footer data-role="footer" data-position="fixed" data-id="st_footer" data-theme="a"><h3>Copyright @copy; 2015 IAMM</h3></footer>
+        </div>
+        <!-- end of home page -->
+
+        <!-- start of about page -->
+        <div data-role="page" id="about" data-title="About us" data-theme="b">
+            <header data-role="header" data-position="fixed" data-id="st_header" data-theme="a">
+                <h1>About us</h1>
+                <a href="#home" data-role="button" data-icon="home" data-iconpos="notext" data-transition="slide">Home</a>
+                <a href="#events" id="aboutNextBtn" data-icon="carat-r" data-iconpos="notext" data-transition="slide">Events</a>
+            </header>
+            <div data-role="content">
+                <h3>Iowa Marathi Mandal WhatsApp Group!</h3>
+                <img class="banner" src="img/banner.jpg">
+                <p>
+                    आयोवा मराठी मंडळ  व्हाट्सऍप ग्रुप हा ६५+ मराठी लोकांचा ग्रुप आहे. दिवसेंदिवस आयोवा एरिया मध्ये मराठी
+                    फॅमिलीची संख्या वाढत आहे आणि म्हणूनच आम्ही मराठी लोकांनी एकत्र येऊन हा ग्रुप स्थापन केला आहे.
+                    आमचा केवळ उद्धेश म्हणजे मराठी फॅमिलीनी एकत्र येणे, वेगवेगळ्या कार्यक्रमात सहभागी होणे, आणि
+                    एकमेकांच्या संपर्कात राहणे.
+                </p>
+                <div data-role="footer" id="aboutFooter" data-position="fixed" data-id="st_footer" data-theme="a">
+                    <div data-role="navbar">
+                        <ul>
+                            <li><a href="#" data-role="button" data-icon="info" data-iconpos="right" data-transition="slide">About</a></li>
+                            <li><a href="#events" data-role="button" data-icon="location" data-iconpos="right" data-transition="slide">Events</a></li>
+                            <li><a href="#gallery" data-role="button" data-icon="grid" data-iconpos="right" data-transition="slide">Gallery</a></li>
+                            <li><a href="#bmm2017" data-role="button" data-icon="star" data-iconpos="right" data-transition="slide">BMM</a></li>
+                            <li><a href="#contact" data-role="button" data-icon="user" data-iconpos="right" data-transition="slide">Contact</a></li>
+                        </ul>
+                    </div> <!-- end of navbar -->
+                </div>
+            </div>
+        </div>
+        <!-- end of about page -->
+
+        <!-- start of events page -->
+        <div data-role="page" id="events" data-title="Events" data-theme="b">
+            <header data-role="header" data-position="fixed" data-id="st_header" data-theme="a">
+                <h1>Events</h1>
+                <a href="#home" id="eventHomeBtn" data-role="button" data-icon="home" data-iconpos="notext" data-transition="slide">Home</a>
+                <a href="#gallery" data-icon="carat-r" data-iconpos="notext" data-transition="slide">Gallery</a>
+            </header>
+            <div data-role="content">
+                <div data-role="collapsible-set" data-content-theme="d">
+                    <div data-role="collapsible" class="closeMe">
+                        <h3>Upcoming Local Events</h3>
+                        <h2>Indian classical music concert</h2>
+                        <table data-role="table" id="april25" class="ui-responsive table-stroke">
+                            <thead>
+                            <tr>
+                                <th>When:</th>
+                                <th>Where:</th>
+                                <th>Time:</th>
+                                <th>Address:</th>
+                                <th>Info:</th>
+                                <!--<th>Map:</th>-->
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr>
+                                <td>April 25th</td>
+                                <td>School of Music Voxman building-RECITAL HALL</td>
+                                <td>7:30 PM</td>
+                                <td>93 E Burlington St, Iowa City, IA 52240</td>
+                                <td>
+                                    <div>The UI School of Music will be hosting Pandit Ronu Majumdarji (acclaimed flautist) and Harshad Kanetkar (tabla)</div>
+                                    <div><iframe width="250" height="200" src="http://www.youtube.com/embed/IIzEHQ9s-0g" frameborder="0" allowfullscreen></iframe></div>
+                                    <div><iframe width="250" height="200" src="http://www.youtube.com/embed/k52ZwVz_j9k" frameborder="0" allowfullscreen></iframe></div>
+                                </td>
+                                <!--<td><iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2980.920582299067!2d-91.53721898404596!3d41.65745787924035!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x87e441ee9cc19097%3A0xe6400b59e8cd5572!2sThe+University+of+Iowa+School+of+Music+-+Voxman+Building!5e0!3m2!1sen!2sus!4v1492113734867"-->
+                                            <!--width="250" height="200" frameborder="0" style="border:0" allowfullscreen></iframe></td>-->
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div data-role="collapsible">
+                        <h3>Near Area Events</h3>
+                        <h2>Arijit Singh concert - Chicago</h2>
+                        <table data-role="table" id="april25" class="ui-responsive table-stroke">
+                            <thead>
+                            <tr>
+                                <th>When:</th>
+                                <th>Where:</th>
+                                <th>Time:</th>
+                                <th>Address:</th>
+                                <th>Info:</th>
+                                <!--<th>Map:</th>-->
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr>
+                                <td>April 14th</td>
+                                <td>Sears Centre Arena</td>
+                                <td>8:30 PM</td>
+                                <td>5333 Prairie Stone Parkway Hoffman Estates, IL 60192</td>
+                                <td>
+                                    <div><iframe width="250" height="200" src="http://www.youtube.com/embed/nDiAz48tlso" frameborder="0" allowfullscreen></iframe></div>
+                                </td>
+                                <!--<td><iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2980.920582299067!2d-91.53721898404596!3d41.65745787924035!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x87e441ee9cc19097%3A0xe6400b59e8cd5572!2sThe+University+of+Iowa+School+of+Music+-+Voxman+Building!5e0!3m2!1sen!2sus!4v1492113734867"-->
+                                <!--width="250" height="200" frameborder="0" style="border:0" allowfullscreen></iframe></td>-->
+                            </tr>
+                            </tbody>
+                        </table>
+                        <h2>Shankar Mahadevan concert - Chicago</h2>
+                        <table data-role="table" id="april25" class="ui-responsive table-stroke">
+                            <thead>
+                            <tr>
+                                <th>When:</th>
+                                <th>Where:</th>
+                                <th>Time:</th>
+                                <th>Address:</th>
+                                <th>Info:</th>
+                                <!--<th>Map:</th>-->
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr>
+                                <td>May 13th</td>
+                                <td>Yellow Box Auditorium, Community Christian Church</td>
+                                <td>6:00 PM</td>
+                                <td>1635 Emerson Ln, Naperville, IL</td>
+                                <td>
+                                    <div>Concert For A Cause! A divine and melodious musical experience like no other. Shankar Mahadevan Live in Naperville, IL.
+         ios                               Also featuring Siddharth Mahadevan and Shivam Mahadevan along with a 20 member orchestra.</div>
+                                </td>
+                                <!--<td><iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2980.920582299067!2d-91.53721898404596!3d41.65745787924035!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x87e441ee9cc19097%3A0xe6400b59e8cd5572!2sThe+University+of+Iowa+School+of+Music+-+Voxman+Building!5e0!3m2!1sen!2sus!4v1492113734867"-->
+                                <!--width="250" height="200" frameborder="0" style="border:0" allowfullscreen></iframe></td>-->
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div data-role="collapsible">
+                        <h3>Past Events</h3>
+                        <h2>Diwali 2016</h2>
+                        <div><strong>When:</strong> October 2016</div>
+                        <div><strong>Where:</strong> North Liberty Recreation Center</div>
+                        <div><strong>Time:</strong> Noon</div>
+                        <div><a href="#gallery" data-role="button" data-icon="grid" data-transition="slide">Photos</a></div>
+                        <hr/>
+                    </div>
+                </div>
+            </div>
+            <div data-role="footer" data-position="fixed" data-id="st_footer" data-theme="a">
+                <div data-role="navbar">
+                    <ul>
+                        <li><a href="#about" data-role="button" data-icon="info" data-iconpos="right" data-transition="slide">About</a></li>
+                        <li><a href="#" data-role="button" data-icon="location" data-iconpos="right" data-transition="slide">Events</a></li>
+                        <li><a href="#gallery" data-role="button" data-icon="grid" data-iconpos="right" data-transition="slide">Gallery</a></li>
+                        <li><a href="#bmm2017" data-role="button" data-icon="star" data-iconpos="right" data-transition="slide">BMM</a></li>
+                        <li><a href="#contact" data-role="button" data-icon="user" data-iconpos="right" data-transition="slide">Contact</a></li>
+                    </ul>
+                </div> <!-- end of navbar -->
+            </div>
+        </div>
+        <!-- end of event page -->
+
+        <!-- start of gallery page -->
+        <div data-role="page" id="gallery" data-theme="b">
+            <header data-role="header" data-position="fixed" data-id="st_header" data-theme="a">
+                <h1>Gallery</h1>
+                <a href="#home" id="galleryHomeBtn" data-role="button" data-icon="home" data-iconpos="notext" data-transition="slide">Home</a>
+                <a href="#bmm2017" data-icon="carat-r" data-iconpos="notext" data-transition="slide">BMM 2017</a>
+            </header>
+            <div data-role="content">
+                <div data-role="collapsibleset" data-mini="true">
+                    <div data-role="collapsible" class="closeMe">
+                        <h3>April 02 Practice</h3>
+                        <div class="ui-grid-b" id="bmm_practice"></div>
+                    </div>
+                    <div data-role="collapsible" class="closeMe">
+                        <h3>Diwali 2016</h3>
+                        <div class="ui-grid-b" id="diwali_2016"></div>
+                    </div>
+                </div>
+            </div>
+            <div data-role="footer" data-position="fixed" data-id="st_footer" data-theme="a">
+                <div data-role="navbar">
+                    <ul>
+                        <li><a href="#about" data-role="button" data-icon="info" data-iconpos="right" data-transition="slide">About</a></li>
+                        <li><a href="#events" data-role="button" data-icon="location" data-iconpos="right" data-transition="slide">Events</a></li>
+                        <li><a href="#" data-role="button" data-icon="grid" data-iconpos="right" data-transition="slide">Gallery</a></li>
+                        <li><a href="#bmm2017" data-role="button" data-icon="star" data-iconpos="right" data-transition="slide">BMM</a></li>
+                        <li><a href="#contact" data-role="button" data-icon="user" data-iconpos="right" data-transition="slide">Contact</a></li>
+                    </ul>
+                </div> <!-- end of navbar -->
+            </div>
+        </div>
+        <!-- end of gallery page -->
+
+        <!-- start of display gallery photo page -->
+        <div data-role="page" id="show_photo" data-theme="b">
+            <header data-role="header" data-position="fixed" data-id="st_header" data-theme="a">
+                <h1>Photo</h1>
+                <a href="#home" data-role="button" data-icon="home" data-iconpos="notext" data-transition="slide">Home</a>
+                <a href="#gallery" data-icon="back" data-iconpos="notext" data-transition="slide">Gallery</a>
+            </header>
+            <div data-role="content">
+                <div id="my_photo"></div>
+            </div>
+            <div data-role="footer" data-position="fixed" data-id="st_footer" data-theme="a">
+                <div data-role="navbar">
+                    <ul>
+                        <li><a href="#about" data-role="button" data-icon="info" data-iconpos="right" data-transition="slide">About</a></li>
+                        <li><a href="#events" data-role="button" data-icon="location" data-iconpos="right" data-transition="slide">Events</a></li>
+                        <li><a href="#" data-role="button" data-icon="grid" data-iconpos="right" data-transition="slide">Gallery</a></li>
+                        <li><a href="#bmm2017" data-role="button" data-icon="star" data-iconpos="right" data-transition="slide">BMM</a></li>
+                        <li><a href="#contact" data-role="button" data-icon="user" data-iconpos="right" data-transition="slide">Contact</a></li>
+                    </ul>
+                </div> <!-- end of navbar -->
+            </div>
+        </div>
+        <!-- end of display gallery photo page -->
+
+        <!-- start of bmm page -->
+        <div data-role="page" id="bmm2017" data-theme="b">
+            <header data-role="header" data-position="fixed" data-id="st_header" data-theme="a">
+                <h1>BMM 2017</h1>
+                <a href="#home" data-role="button" data-icon="home" data-iconpos="notext" data-transition="slide">Home</a>
+                <a href="#contact" data-icon="carat-r" data-iconpos="notext" data-transition="slide">Contact</a>
+            </header>
+            <div data-role="content">
+                <div data-role="collapsibleset" data-mini="true">
+                    <div data-role="collapsible" data-collapsed-icon="carat-r" data-expanded-icon="carat-u">
+                        <h3>APJ BMM2017 Flyer </h3>
+                        <a href="#show_full_photo" data-transition="fade"
+                           onclick="showFullPhoto('img/apj_image', 'Apj Banner', 'bmm2017')">
+                            <img src="img/apj_image.jpg" class="banner" alt="APJ Banner">
+                        </a>
+                    </div>
+                    <div data-role="collapsible" data-collapsed-icon="carat-r" data-expanded-icon="carat-u">
+                        <h3>APJ in Marathi News</h3>
+                        <div>मराठी पेपर सकाळ मध्ये BMM 2017 वर लेख आला होता आणि त्यात "आम्हाला पण जमत" कार्यक्रमाला संबोधित केले आहे.</br>
+                        <a href="http://beta1.esakal.com/pailateer/bmm-convention-detroit%C2%A0-34235" target="_blank">
+                            आम्हाला पण जमत - बातमी
+                        </a></div>
+                    </div>
+                </div>
+            </div>
+            <div data-role="footer" data-position="fixed" data-id="st_footer" data-theme="a">
+                <div data-role="navbar">
+                    <ul>
+                        <li><a href="#about" data-role="button" data-icon="info" data-iconpos="right" data-transition="slide">About</a></li>
+                        <li><a href="#events" data-role="button" data-icon="location" data-iconpos="right" data-transition="slide">Events</a></li>
+                        <li><a href="#gallery" data-role="button" data-icon="grid" data-iconpos="right" data-transition="slide">Gallery</a></li>
+                        <li><a href="#" data-role="button" data-icon="star" data-iconpos="right" data-transition="slide">BMM</a></li>
+                        <li><a href="#contact" data-role="button" data-icon="user" data-iconpos="right" data-transition="slide">Contact</a></li>
+                    </ul>
+                </div> <!-- end of navbar -->
+            </div>
+        </div>
+        <!-- end of bmm page -->
+
+        <!-- start of display any photo full page -->
+        <div data-role="page" id="show_full_photo" data-theme="b">
+            <header data-role="header" data-position="fixed" data-id="st_header" data-theme="a">
+                <h1>Photo</h1>
+                <a href="#home" data-role="button" data-icon="home" data-iconpos="notext" data-transition="slide">Home</a>
+                <a href="#bmm2017" data-icon="back" data-iconpos="notext" data-transition="slide">BMM 2017</a>
+            </header>
+            <div data-role="content">
+                <div id="full_photo"></div>
+            </div>
+            <div data-role="footer" data-position="fixed" data-id="st_footer" data-theme="a">
+                <div data-role="navbar">
+                    <ul>
+                        <li><a href="#about" data-role="button" data-icon="info" data-iconpos="right" data-transition="slide">About</a></li>
+                        <li><a href="#events" data-role="button" data-icon="location" data-iconpos="right" data-transition="slide">Events</a></li>
+                        <li><a href="#" data-role="button" data-icon="grid" data-iconpos="right" data-transition="slide">Gallery</a></li>
+                        <li><a href="#bmm2017" data-role="button" data-icon="star" data-iconpos="right" data-transition="slide">BMM</a></li>
+                        <li><a href="#contact" data-role="button" data-icon="user" data-iconpos="right" data-transition="slide">Contact</a></li>
+                    </ul>
+                </div> <!-- end of navbar -->
+            </div>
+        </div>
+        <!-- end of display any photo full page -->
+
+        <!-- start of contact page -->
+        <div data-role="page" id="contact" data-theme="b">
+            <header data-role="header" data-position="fixed" data-id="st_header" data-theme="a">
+                <h1>Contact</h1>
+                <a href="#home" data-role="button" data-icon="home" data-iconpos="notext" data-transition="slide">Home</a>
+            </header>
+            <div data-role="content">
+                <div id="contactUsNote"><span id="contactFieldReqNote" class="entypo-megaphone"></span>All fields are required.</div>
+                <div id="contactUsForm" data-role="fieldcontain">
+                    <label for="contactUsFullName">Full name:</label>
+                    <input type="text" name="contactFullName" id="contactUsFullName" value="">
+                    <label for="contactUsEmail">Email:</label>
+                    <input type="email" data-clear-btn="false" name="contactEmail" id="contactUsEmail" value="">
+                    <label for="contactUsComments">Comments/Questions:</label>
+                    <textarea id="contactUsComments" maxlength="200"></textarea>
+                    <div data-role="controlgroup">
+                        <br/>
+                        <input type="button" id="submitContactUs" value="Submit"/>
+                        <!--<a href="#contactSubmit" data-rel="popup" data-role="button">Submit</a>-->
+                    </div>
+                </div>
+            </div>
+            <div data-role="footer" id="contactFooter" data-position="fixed" data-id="st_footer" data-theme="a">
+                <div data-role="navbar">
+                    <ul>
+                        <li><a href="#about" data-role="button" data-icon="info" data-iconpos="right" data-transition="slide">About</a></li>
+                        <li><a href="#events" data-role="button" data-icon="location" data-iconpos="right" data-transition="slide">Events</a></li>
+                        <li><a href="#gallery" data-role="button" data-icon="grid" data-iconpos="right" data-transition="slide">Gallery</a></li>
+                        <li><a href="#bmm2017" data-role="button" data-icon="star" data-iconpos="right" data-transition="slide">BMM</a></li>
+                        <li><a href="#" data-role="button" data-icon="user" data-iconpos="right" data-transition="slide">Contact</a></li>
+                    </ul>
+                </div> <!-- end of navbar -->
+            </div>
+        </div>
+        <!-- end of contact page -->
+
+        <!-- start of contact submit dialog -->
+        <div data-role="dialog" id="contactSubmit" data-position-to="window"  data-theme="b">
+            <div data-role="header"></div>
+            <div data-role="content">
+                <h3>Thank you for reaching out to us!</h3>
+                <p>We will look over your message and get back to you you as soon as possible.</p>
+                <a href="#home" data-role="button" data-icon="home" data-iconpos="notext" data-transition="slide">Home</a>
+            </div>
+        </div>
+        <!-- end of contact submit dialog -->
+
+    </div>
+    <!-- end of app -->
+    <script type="text/javascript" src="cordova.js"></script>
+    <script type="text/javascript" src="js/jquery.js"></script>
+    <script type="text/javascript" src="js/jquery.mobile.js"></script>
+    <!--<script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>-->
+    <!--<script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>-->
+    
+    <script src="https://www.gstatic.com/firebasejs/3.9.0/firebase.js"></script>
+    <script type="text/javascript" src="js/index.js"></script>
+    <script type="text/javascript" src="js/app.js"></script>
+    <script src="https://use.fontawesome.com/e4ce69f456.js"></script>
+</body>
+
+</html>

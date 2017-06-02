@@ -1,0 +1,196 @@
+/*@font-face {*/
+    /*!*font-family: 'Love Ya Like A Sister', cursive !important;*!*/
+      /*font-family: 'Old Standard TT', serif !important;*/
+/*}*/
+@charset"utf-8";
+/* ---------- http://weloveiconfonts.com/ ---------- */
+@import url(http://weloveiconfonts.com/api/?family=fontawesome);
+@import url(http://weloveiconfonts.com/api/?family=entypo);
+
+/* entypo */
+[class*="entypo-"]:before {
+    font-family: 'entypo', sans-serif;
+}
+
+/* fontawesome */
+[class*="fontawesome-"]:before {
+    font-family: 'FontAwesome', sans-serif;
+}
+
+body {
+    color: #333333;
+    /*font-family: Century Gothic, sans-serif;*/
+    /*font-family: 'Love Ya Like A Sister', cursive !important;
+    font-weight: 400;
+    font-family: 'Old Standard TT', serif !important;
+    font-family: 'Lobster Two', cursive !important;*/
+    font-family: 'Architects Daughter', cursive;
+}
+
+
+.welcome {
+    font-family: 'Tangerine', serif;
+    font-size: 30px;
+    text-shadow: 4px 4px 4px #aaa;
+    text-align: center;
+    margin-right: 15px;
+    margin-top: 0px;
+}
+
+.loginForm fieldset {
+    background-color: #fff;
+    -webkit-border-radius: 0 0 20px 20px;
+    -moz-border-radius: 0 0 20px 20px;
+    border-radius: 0 0 20px 20px;
+    padding: 20px 26px;
+}
+.loginForm h2 {
+    background-color: #5e87b0;
+    -webkit-border-radius: 20px 20px 0 0;
+    -moz-border-radius: 20px 20px 0 0;
+    border-radius: 20px 20px 0 0;
+    color: #fff;
+    font-size: 24px;
+    padding: 20px 26px;
+    margin-bottom: 0px;
+}
+.loginForm h3 {
+    background-color: #5e87b0;
+    -webkit-border-radius: 20px 20px 0 0;
+    -moz-border-radius: 20px 20px 0 0;
+    border-radius: 20px 20px 0 0;
+    color: #fff;
+    font-size: 20px;
+    padding: 20px 26px;
+    margin-bottom: 0px;
+}
+.loginForm h2 span[class*="entypo-"] {
+    margin-right: 14px;
+}
+.loginForm h3 span[class*="entypo-"] {
+    margin-right: 14px;
+}
+
+#loginNote, #contactUsNote, #fgPassNote {
+    margin-top: 10px;
+}
+#loginEmlNote, #contactFieldReqNote, #fgPassResetNote{
+    font-size: 20px;
+    margin-right: 5px;
+}
+
+/*login form button css*/
+#loginBtnDiv .ui-btn, #fgPassBtnDiv .ui-btn {
+    margin-right: 0px;
+    margin-left: 0px;
+    font-size: 14px;
+}
+
+
+
+.banner{
+    width: 100%;
+}
+
+#homeMenu  span{
+    float: left;
+    font-size: 20px;
+}
+
+#home {
+    background-image:url('../img/iowa_background.jpg');
+    background-size:100% 100%;
+    /*-webkit-background-size: cover;*/
+    /*-moz-background-size: cover;*/
+    /*-o-background-size: cover;*/
+    /*background-size: cover;*/
+    /*background-size:100% 100%;*/
+}
+
+#home {
+    text-align: center;
+}
+
+#home img{
+    width: 50%;
+    max-width: 200px;
+    display: block;
+    margin: 0 auto;
+    margin-bottom: -40px;
+    margin-top: -30px;
+}
+
+#homeLogo {
+    width: 45%;
+    max-width: 200px;
+    display: block;
+    margin: 0 auto;
+    margin-bottom: -40px;
+    margin-top: -30px;
+}
+
+#homeWelcome {
+    margin-top: 25px;
+    margin-bottom: 5px;
+    font-size: 25px;
+}
+
+/* photo custom css start*/
+#bmm_practice img {
+    /*width: 100px;*/
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    -border-radius: 5px;
+}
+
+#diwali_2016 img {
+    /*width: 100px;*/
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    -border-radius: 5px;
+}
+/*#bmm_practice .ui-block-a,*/
+/*#bmm_practice .ui-block-b,*/
+/*#bmm_practice .ui-block-c {*/
+    /*width: 100px;*/
+    /*height: 100px;*/
+    /*padding: 5px;*/
+
+/*}*/
+
+
+#show_photo {
+    background: black;
+}
+
+#show_photo img {
+    display: block;
+    margin: 0 auto;
+    width: 100%;
+}
+
+#show_photo .ui-content {
+    width: 100%;
+    padding: 0px;
+}
+/* photo custom css end*/
+
+/* full photo custom css end*/
+#show_full_photo {
+    background: black;
+}
+
+#show_full_photo img {
+    display: block;
+    margin: 0 auto;
+    width: 100%;
+}
+
+#show_full_photo .ui-content {
+    width: 100%;
+    padding: 0px;
+}
+/* full photo custom css end*/
+
+/*below line prevent android crashing on page transition animation*/
+.ui-page { -webkit-backface-visibility: hidden; }
